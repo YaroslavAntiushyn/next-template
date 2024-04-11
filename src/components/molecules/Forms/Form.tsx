@@ -1,9 +1,9 @@
 'use client'
-import React from 'react'
+import { FC, useEffect } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import SubmitBtn from '../Buttons/SubmitBtn'
 
-const FormComponent: React.FC = () => {
+const Form: FC = () => {
   const methods = useForm()
   const {
     register,
@@ -12,22 +12,43 @@ const FormComponent: React.FC = () => {
     getValues
   } = methods
 
-  //! another option for submitting form data
-  // const onSubmit = (data: any) => {
-  //   console.log(data)
-  // }
-
   const onSubmit = () => {
     console.log(getValues())
   }
 
-  // const selectedValue = useWatch({
-  //   control: methods.control
-  // })
+  useEffect(() => {
+    console.log()
+  }, [errors])
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(onSubmit)} className='max-w-md mx-auto mt-8'>
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className='max-w-md mx-auto mt-8'
+        noValidate
+      >
+        <div className='mb-4'>
+          <label className='block text-gray-700 text-sm font-bold mb-2'>
+            Text Input:
+            <input
+              required
+              style={{ border: errors.textField && 'solid 1px red' }}
+              type='text'
+              className='form-input mt-1 block w-full'
+              {...register('textField', { required: 'This field is required' })}
+            />
+          </label>
+          {errors.textField?.message as string}
+        </div>
+        <div className='mb-4'>
+          <label className='block text-gray-700 text-sm font-bold mb-2'>
+            Textarea:
+            <textarea
+              className='form-textarea mt-1 block w-full'
+              {...register('textareaField')}
+            />
+          </label>
+        </div>
         <div className='mb-4'>
           <label className='block text-gray-700 text-sm font-bold mb-2'>
             Checkbox:
@@ -72,4 +93,4 @@ const FormComponent: React.FC = () => {
   )
 }
 
-export default FormComponent
+export default Form
