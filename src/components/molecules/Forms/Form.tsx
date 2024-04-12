@@ -35,7 +35,13 @@ const Form: FC = () => {
               style={{ border: errors.textField && 'solid 1px red' }}
               type='text'
               className='form-input mt-1 block w-full'
-              {...register('textField', { required: 'This field is required' })}
+              {...register('textField', {
+                required: 'This field is required',
+                pattern: {
+                  value: /^[a-zA-Z0-9]*$/,
+                  message: 'Only letters and numbers are allowed'
+                }
+              })}
             />
           </label>
           {errors.textField?.message as string}
