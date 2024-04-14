@@ -1,25 +1,25 @@
-'use client'
-import { FC, ReactNode, createContext, useContext } from 'react'
-import RootStore from './RootStore'
+'use client';
+import { FC, ReactNode, createContext, useContext } from 'react';
+import RootStore from './RootStore';
 
-const RootStoreContext = createContext<RootStore | null>(null)
+const RootStoreContext = createContext<RootStore | null>(null);
 
 export const useStores = () => {
-  const context = useContext(RootStoreContext)
+  const context = useContext(RootStoreContext);
 
   if (!context) {
-    throw new Error('error')
+    throw new Error('error');
   }
 
-  return context
-}
+  return context;
+};
 
 const StoreProvider: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <RootStoreContext.Provider value={new RootStore()}>
       {children}
     </RootStoreContext.Provider>
-  )
-}
+  );
+};
 
-export default StoreProvider
+export default StoreProvider;

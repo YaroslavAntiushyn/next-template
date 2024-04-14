@@ -1,9 +1,9 @@
 export interface UserData {
-  id: string
-  name: string
-  age: number
-  city: string
-  [key: string]: string | number
+  id: string;
+  name: string;
+  age: number;
+  city: string;
+  [key: string]: string | number;
 }
 
 export const mockData: UserData[] = [
@@ -207,4 +207,4 @@ export const mockData: UserData[] = [
   { id: '198', name: 'Zachary', age: 32, city: 'San Francisco' },
   { id: '199', name: 'Brittany', age: 29, city: 'Los Angeles' },
   { id: '200', name: 'Brandon', age: 31, city: 'San Diego' }
-]
+];

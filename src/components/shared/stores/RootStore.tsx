@@ -1,7 +1,7 @@
-import counterStore from './counterStore'
+import counterStore from './counterStore';
 
 class RootStore {
-  counterStore = counterStore
+  counterStore = counterStore;
 }
 
-export default RootStore
+export default RootStore;

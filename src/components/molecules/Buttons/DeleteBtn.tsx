@@ -1,9 +1,9 @@
-import Button from '@/components/atoms/Button'
-import { FC } from 'react'
+import Button from '@/components/atoms/Button';
+import { FC } from 'react';
 
 interface DeleteBtnProps {
-  onClick: () => void
-  text: string
+  onClick: () => void;
+  text: string;
 }
 
 const DeleteBtn: FC<DeleteBtnProps> = ({ onClick, text }) => {
@@ -15,7 +15,7 @@ const DeleteBtn: FC<DeleteBtnProps> = ({ onClick, text }) => {
         </div>
       </Button>
     </>
-  )
-}
+  );
+};
 
-export default DeleteBtn
+export default DeleteBtn;
