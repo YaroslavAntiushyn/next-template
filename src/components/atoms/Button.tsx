@@ -1,11 +1,11 @@
-import { FC, ReactNode } from 'react'
+import { FC, ReactNode } from 'react';
 
 interface ButtonProps {
-  children: ReactNode
-  onClick: () => void
-  type?: 'button' | 'submit' | 'reset'
-  disabled?: boolean
-  className?: string
+  children: ReactNode;
+  onClick: () => void;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  className?: string;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -24,7 +24,7 @@ const Button: FC<ButtonProps> = ({
     >
       {children}
     </button>
-  )
-}
+  );
+};
 
-export default Button
+export default Button;

@@ -1,10 +1,10 @@
-import Button from '@/components/atoms/Button'
-import { FC } from 'react'
-import { FormProvider, useForm } from 'react-hook-form'
+import Button from '@/components/atoms/Button';
+import { FC } from 'react';
+import { FormProvider, useForm } from 'react-hook-form';
 
 interface AddBtnProps {
-  onClick: () => void
-  text: string
+  onClick: () => void;
+  text: string;
 }
 
 const AddBtn: FC<AddBtnProps> = ({ onClick, text }) => {
@@ -18,7 +18,7 @@ const AddBtn: FC<AddBtnProps> = ({ onClick, text }) => {
         </Button>
       </FormProvider>
     </>
-  )
-}
+  );
+};
 
-export default AddBtn
+export default AddBtn;

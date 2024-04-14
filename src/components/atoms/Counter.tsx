@@ -1,12 +1,12 @@
-'use client'
-import { FC } from 'react'
-import { observer } from 'mobx-react-lite'
-import { useStores } from '../shared/stores/RootStoreProvider'
+'use client';
+import { FC } from 'react';
+import { observer } from 'mobx-react-lite';
+import { useStores } from '../shared/stores/RootStoreProvider';
 
 const Counter: FC = observer(() => {
   const {
     counterStore: { count, increment, decrement }
-  } = useStores()
+  } = useStores();
   return (
     <>
       <div className='flex items-center justify-center py-4'>
@@ -25,7 +25,7 @@ const Counter: FC = observer(() => {
         </button>
       </div>
     </>
-  )
-})
+  );
+});
 
-export default Counter
+export default Counter;

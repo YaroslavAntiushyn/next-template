@@ -1,11 +1,11 @@
-import { useState, useEffect } from 'react'
-import { useTable, Column } from 'react-table'
+import { useState, useEffect } from 'react';
+import { useTable, Column } from 'react-table';
 
 interface TableProps<T extends Record<string, unknown>> {
-  columns: Column<T>[]
-  data: T[]
-  showCheckboxes?: boolean
-  onSelectionChange?: (selectedIds: string[]) => void
+  columns: Column<T>[];
+  data: T[];
+  showCheckboxes?: boolean;
+  onSelectionChange?: (selectedIds: string[]) => void;
 }
 
 const Table = <T extends Record<string, unknown>>({
@@ -14,51 +14,51 @@ const Table = <T extends Record<string, unknown>>({
   showCheckboxes,
   onSelectionChange
 }: TableProps<T>) => {
-  const [selectedRows, setSelectedRows] = useState<Record<string, boolean>>({})
+  const [selectedRows, setSelectedRows] = useState<Record<string, boolean>>({});
 
   //! selected row
 
   useEffect(() => {
-    const defaultSelectedRows: Record<string, boolean> = {}
+    const defaultSelectedRows: Record<string, boolean> = {};
     data.forEach((_, index) => {
-      defaultSelectedRows[index.toString()] = false
-    })
-    setSelectedRows(defaultSelectedRows)
-  }, [data])
+      defaultSelectedRows[index.toString()] = false;
+    });
+    setSelectedRows(defaultSelectedRows);
+  }, [data]);
 
   useEffect(() => {
     const selectedIds = Object.entries(selectedRows)
       .filter(([, value]) => value)
-      .map(([key]) => key)
+      .map(([key]) => key);
 
     if (onSelectionChange) {
-      onSelectionChange(selectedIds)
+      onSelectionChange(selectedIds);
     }
-  }, [selectedRows, onSelectionChange])
+  }, [selectedRows, onSelectionChange]);
 
   const toggleRowSelection = (id: string) => {
     setSelectedRows((prevState) => ({
       ...prevState,
       [id]: !prevState[id]
-    }))
-  }
+    }));
+  };
 
   const toggleAllRowsSelection = () => {
     const allRowsSelected = Object.values(selectedRows).every(
       (selected) => selected
-    )
-    const newSelectedRows: Record<string, boolean> = {}
+    );
+    const newSelectedRows: Record<string, boolean> = {};
 
     data.forEach((_, index) => {
-      newSelectedRows[index.toString()] = !allRowsSelected
-    })
+      newSelectedRows[index.toString()] = !allRowsSelected;
+    });
 
-    setSelectedRows(newSelectedRows)
-  }
+    setSelectedRows(newSelectedRows);
+  };
   // !
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
-    useTable<T>({ columns, data })
+    useTable<T>({ columns, data });
 
   return (
     <table
@@ -100,7 +100,7 @@ const Table = <T extends Record<string, unknown>>({
       </thead>
       <tbody {...getTableBodyProps()}>
         {rows.map((row, rowIndex) => {
-          prepareRow(row)
+          prepareRow(row);
           return (
             <tr
               {...row.getRowProps()}
@@ -129,14 +129,14 @@ const Table = <T extends Record<string, unknown>>({
                   >
                     {cell.render('Cell')}
                   </td>
-                )
+                );
               })}
             </tr>
-          )
+          );
         })}
       </tbody>
     </table>
-  )
-}
+  );
+};
 
-export default Table
+export default Table;

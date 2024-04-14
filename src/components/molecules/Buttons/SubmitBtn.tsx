@@ -1,17 +1,17 @@
-import Button from '@/components/atoms/Button'
-import { FC } from 'react'
+import Button from '@/components/atoms/Button';
+import { FC } from 'react';
 
 interface SubmitBtnProps {
-  onClick?: () => void
-  text: string
-  type?: 'button' | 'submit' | 'reset'
+  onClick?: () => void;
+  text: string;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const SubmitBtn: FC<SubmitBtnProps> = ({ onClick, text, type = 'submit' }) => {
   return (
     <Button
       onClick={() => {
-        onClick && onClick()
+        onClick && onClick();
       }}
       type={type}
     >
@@ -19,7 +19,7 @@ const SubmitBtn: FC<SubmitBtnProps> = ({ onClick, text, type = 'submit' }) => {
         {text}
       </div>
     </Button>
-  )
-}
+  );
+};
 
-export default SubmitBtn
+export default SubmitBtn;

@@ -1,15 +1,15 @@
-import { FC, useCallback, useState } from 'react'
-import AdvancedTable from '../../molecules/Tables/AdvancedTable/AdvancedTable'
-import DeleteBtn from '@/components/molecules/Buttons/DeleteBtn'
-import AddBtn from '@/components/molecules/Buttons/AddBtn'
-import { mockData } from './mockData'
+import { FC, useCallback, useState } from 'react';
+import AdvancedTable from '../../molecules/Tables/AdvancedTable/AdvancedTable';
+import DeleteBtn from '@/components/molecules/Buttons/DeleteBtn';
+import AddBtn from '@/components/molecules/Buttons/AddBtn';
+import { mockData } from './mockData';
 
 interface UserData {
-  id: string
-  name: string
-  age: number
-  city: string
-  [key: string]: string | number
+  id: string;
+  name: string;
+  age: number;
+  city: string;
+  [key: string]: string | number;
 }
 
 const data: UserData[] = [
@@ -213,17 +213,17 @@ const data: UserData[] = [
   { id: '198', name: 'Zachary', age: 32, city: 'San Francisco' },
   { id: '199', name: 'Brittany', age: 29, city: 'Los Angeles' },
   { id: '200', name: 'Brandon', age: 31, city: 'San Diego' }
-]
+];
 
 const MainTable: FC = () => {
-  const [selectedIds, setSelectedIds] = useState<string[]>([])
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
   const getIdsFromIndexes = useCallback(
     (indexes: string[]) => {
-      return indexes.map((index) => data[parseInt(index)].id)
+      return indexes.map((index) => data[parseInt(index)].id);
     },
     [data]
-  )
+  );
 
   return (
     <>
@@ -237,7 +237,7 @@ const MainTable: FC = () => {
       />
       <AdvancedTable data={mockData} setSelectedIds={setSelectedIds} />
     </>
-  )
-}
+  );
+};
 
-export default MainTable
+export default MainTable;

@@ -1,7 +1,7 @@
-import { Column } from 'react-table'
-import { useCallback, FC, Dispatch } from 'react'
-import Table from '@/components/atoms/Table'
-import { UserData } from '@/components/organisms/MainTable/mockData'
+import { Column } from 'react-table';
+import { useCallback, FC, Dispatch } from 'react';
+import Table from '@/components/atoms/Table';
+import { UserData } from '@/components/organisms/MainTable/mockData';
 
 const columns: Column<UserData>[] = [
   {
@@ -16,15 +16,15 @@ const columns: Column<UserData>[] = [
     Header: 'City',
     accessor: 'city'
   }
-]
+];
 
 const AdvancedTable: FC<{
-  data: UserData[]
-  setSelectedIds: Dispatch<React.SetStateAction<string[]>>
+  data: UserData[];
+  setSelectedIds: Dispatch<React.SetStateAction<string[]>>;
 }> = ({ setSelectedIds, data }) => {
   const handleSelectionChange = useCallback((selectedIds: string[]) => {
-    setSelectedIds(selectedIds)
-  }, [])
+    setSelectedIds(selectedIds);
+  }, []);
 
   return (
     <>
@@ -35,7 +35,7 @@ const AdvancedTable: FC<{
         onSelectionChange={handleSelectionChange}
       />
     </>
-  )
-}
+  );
+};
 
-export default AdvancedTable
+export default AdvancedTable;
