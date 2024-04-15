@@ -1,4 +1,4 @@
-import Form from '@/components/molecules/Forms/Form';
+import Form from '@/components/organisms/Forms/Form';
 import { NextPage } from 'next';
 
 const FormPage: NextPage = () => {
