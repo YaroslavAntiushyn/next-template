@@ -5,9 +5,10 @@ import { useFormContext } from 'react-hook-form';
 interface Select {
   name: string;
   required?: boolean;
+  text: string;
 }
 
-const Select: FC<Select> = ({ name, required }) => {
+const Select: FC<Select> = ({ name, required, text }) => {
   const {
     formState: { errors },
     register
@@ -16,7 +17,7 @@ const Select: FC<Select> = ({ name, required }) => {
     <>
       <div className='mb-4'>
         <label className='block text-gray-700 text-sm font-bold mb-2'>
-          Select:
+          {text}
           <select
             defaultValue=''
             required={required}

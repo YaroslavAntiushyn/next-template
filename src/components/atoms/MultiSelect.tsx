@@ -5,9 +5,10 @@ import { useFormContext } from 'react-hook-form';
 interface MultiSelect {
   name: string;
   required?: boolean;
+  text: string;
 }
 
-const MultiSelect: FC<MultiSelect> = ({ name, required }) => {
+const MultiSelect: FC<MultiSelect> = ({ name, required, text }) => {
   const {
     formState: { errors },
     register
@@ -16,7 +17,7 @@ const MultiSelect: FC<MultiSelect> = ({ name, required }) => {
     <>
       <div className='mb-4'>
         <label className='block text-gray-700 text-sm font-bold mb-2'>
-          Multiselect:
+          {text}
           <select
             required={required}
             className='form-multiselect mt-1 block w-full'

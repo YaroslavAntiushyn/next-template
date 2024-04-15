@@ -5,6 +5,7 @@ import { useFormContext } from 'react-hook-form';
 interface Input {
   name: string;
   required?: boolean;
+  text: string;
   pattern?: {
     value: RegExp;
     message: string;
@@ -14,6 +15,7 @@ interface Input {
 const Input: FC<Input> = ({
   name,
   required,
+  text,
   pattern = {
     value: /^[a-zA-Z0-9]*$/,
     message: 'Only letters and numbers are allowed'
@@ -27,7 +29,7 @@ const Input: FC<Input> = ({
     <>
       <div className='mb-4'>
         <label className='block text-gray-700 text-sm font-bold mb-2'>
-          Text Input:
+          {text}
           <input
             required={required}
             style={{ border: errors[name] && 'solid 1px red' }}
