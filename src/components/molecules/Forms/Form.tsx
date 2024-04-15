@@ -7,13 +7,11 @@ import Checkbox from '@/components/atoms/Checkbox';
 import Textarea from '@/components/atoms/Textarea';
 import Select from '@/components/atoms/Select';
 import MultiSelect from '@/components/atoms/MultiSelect';
+import Date from '@/components/atoms/Date';
 
 const Form: FC = () => {
   const methods = useForm<any>();
-  const {
-    handleSubmit,
-    getValues
-  } = methods;
+  const { handleSubmit, getValues } = methods;
 
   const onSubmit = () => {
     console.log(getValues());
@@ -26,11 +24,12 @@ const Form: FC = () => {
         className='max-w-md mx-auto mt-8'
         noValidate
       >
-        <Input name='textField' required />
-        <Textarea name='textareaField' required />
-        <Checkbox name='checkboxField' required />
-        <Select name='selectField' required />
-        <MultiSelect name='multiselectField' required />
+        <Input name='textField' text='Text Input' required />
+        <Textarea name='textareaField' text='Text Input' required />
+        <Checkbox name='checkboxField' text='Checkbox' required />
+        <Select name='selectField' text='Select' required />
+        <MultiSelect name='multiselectField' text='Multiselect' required />
+        <Date />
         <SubmitBtn text='submit' />
       </form>
     </FormProvider>

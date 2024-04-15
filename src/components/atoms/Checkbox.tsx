@@ -5,9 +5,10 @@ import { useFormContext } from 'react-hook-form';
 interface Checkbox {
   name: string;
   required?: boolean;
+  text: string;
 }
 
-const Checkbox: FC<Checkbox> = ({ name, required }) => {
+const Checkbox: FC<Checkbox> = ({ name, required, text }) => {
   const {
     formState: { errors },
     register
@@ -16,7 +17,7 @@ const Checkbox: FC<Checkbox> = ({ name, required }) => {
     <>
       <div className='mb-4'>
         <label className='block text-gray-700 text-sm font-bold mb-2'>
-          Checkbox:
+          {text}
           <input
             required={required}
             style={{ border: errors[name] && 'solid 1px red' }}
