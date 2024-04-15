@@ -1,6 +1,7 @@
 'use client';
 import { FC } from 'react';
 import { useFormContext } from 'react-hook-form';
+import { pattern as pt } from '../shared/assets/patterns/pattern';
 
 interface Textarea {
   name: string;
@@ -12,15 +13,7 @@ interface Textarea {
   };
 }
 
-const Textarea: FC<Textarea> = ({
-  name,
-  required,
-  text,
-  pattern = {
-    value: /^[a-zA-Z0-9]*$/,
-    message: 'Only letters and numbers are allowed'
-  }
-}) => {
+const Textarea: FC<Textarea> = ({ name, required, text, pattern = pt }) => {
   const {
     formState: { errors },
     register
