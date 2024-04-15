@@ -1,5 +1,5 @@
 'use client';
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
 import { useForm, FormProvider } from 'react-hook-form';
 import SubmitBtn from '../Buttons/SubmitBtn';
 import Input from '@/components/atoms/Input';
