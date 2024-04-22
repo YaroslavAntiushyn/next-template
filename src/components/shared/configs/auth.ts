@@ -7,7 +7,6 @@ export const authConfig: AuthOptions = {
   providers: [
     Credentials({
       name: 'Credentials',
-
       credentials: {
         email: { label: 'Email', type: 'email', required: true },
         password: {
@@ -62,7 +61,7 @@ export const authConfig: AuthOptions = {
     }
   },
   pages: {
-    signIn: '/forms'
+    signIn: '/login'
     // signOut: "/auth/logout",
     // error: "/auth/error",
   }
